@@ -24,6 +24,9 @@
         * { box-sizing: border-box; }
 
         body {
+            -webkit-user-select: none; /* Safari */
+            -ms-user-select: none;     /* IE 10+ und Edge */
+            user-select: none;         /* Standard (Chrome, Firefox, Opera) */
             font-family: var(--font-main);
             background-color: var(--bg);
             color: var(--text-main);
@@ -278,6 +281,9 @@
             p.style.animation = `float ${Math.random() * 5 + 5}s infinite ease-in-out`;
             bgContainer.appendChild(p);
         }
+        // Verhindert das Öffnen des Kontextmenüs beim Rechtsklick
+          document.addEventListener('contextmenu', event => event.preventDefault());
+
 
         const rules = [
             { t: "Respektvoll & Freundlich", d: "Behandle alle Mitglieder mit Respekt, äußere deine Meinung konstruktiv und hilf dabei, diese Community für alle einladend zu gestalten.", p: "⚠️ Warn / 🔇 Mute", i: "fas fa-users" },
